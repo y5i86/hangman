@@ -1,3 +1,4 @@
+# I acknowledge the use of chatgpt version 5 mini to create the code in this file
 import tkinter as tk
 import random
 
