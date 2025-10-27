@@ -20,6 +20,9 @@ class HangmanGUI:
         self.button_guess = tk.Button(root, text="Guess", command=self.make_guess)
         self.button_guess.pack(pady=5)
 
+        self.button_restart = tk.Button(root, text="Go Again?", command=self.reset_game)
+        self.button_restart.pack(pady=5)
+
         self.label_info = tk.Label(root, text=f"Lives left: {self.lives}")
         self.label_info.pack(pady=5)
 
@@ -53,6 +56,14 @@ class HangmanGUI:
                 self.button_guess.config(state=tk.DISABLED)
 
         self.label_word.config(text=self.get_display_word())
+
+    def reset_game(self):
+        self.word = random.choice(self.words)
+        self.guesses = []
+        self.lives = 6
+        self.label_word.config(text=self.get_display_word())
+        self.label_info.config(text=f"Lives left: {self.lives}")
+        self.button_guess.config(state=tk.NORMAL)
 
 if __name__ == "__main__":
     root = tk.Tk()
